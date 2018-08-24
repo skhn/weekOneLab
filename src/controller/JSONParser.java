@@ -2,6 +2,7 @@ package controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import repository.Credentials;
 import repository.beans.Stocks;
 
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JSONParser {
+class JSONParser {
 
     private ObjectMapper objectMapper;
     private List<String> rowList;
@@ -18,7 +19,7 @@ public class JSONParser {
 
     private static JSONParser single_instance = null;
 
-    public List<String> getRowList() {
+    List<String> getRowList() {
         return rowList;
     }
 
@@ -28,7 +29,7 @@ public class JSONParser {
         this.rowList = new ArrayList<>();
         {
             try {
-                this.url = new URL("https://bootcamp-training-files.cfapps.io/week1/week1-stocks.json");
+                this.url = new URL(Credentials.getURL());
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -49,7 +50,7 @@ public class JSONParser {
         }
     }
 
-    public static JSONParser getJSONParserInstance()
+    static JSONParser getJSONParserInstance()
     {
         if (single_instance == null)
             single_instance = new JSONParser();
@@ -57,26 +58,4 @@ public class JSONParser {
 
         return single_instance;
     }
-
-
-
-//    Stocks stock;
-
-//    String json =
-//
-//            "{ \"symbol\" : \"AAPL\", \"price\" : 1000.00 , \"volume\" : 5000, \"date\" : \"2018-06-22T08:30:00.000+0000\" }";
-//
-//    {
-//        try {
-//            stock = objectMapper.readValue(json, Stocks.class);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
-//    public static void main(String[] args) {
-//        System.out.println(getJSONParserInstance().getRowList().get(3));
-//    }
-
 }

@@ -34,9 +34,9 @@ public class DBService {
 
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.err.println(e);
         } catch (ParseException e) {
-            e.printStackTrace();
+           System.err.println(e);
         }
     }
 

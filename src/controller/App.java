@@ -4,8 +4,6 @@ import repository.Credentials;
 import repository.Query;
 import repository.beans.AggregateView;
 import services.DBService;
-
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +11,9 @@ import java.util.Scanner;
 
 public class App {
 
-    // change
-    List<String> rows = JSONParser.getJSONParserInstance().getRowList();
+    private List<String> rows = JSONParser.getJSONParserInstance().getRowList();
 
-    List<List<AggregateView>> aggregateDataObject = new ArrayList<>();
+    private List<List<AggregateView>> aggregateDataObject = new ArrayList<>();
 
 
 
@@ -33,7 +30,7 @@ public class App {
                         Credentials.getUSERNAME(),
                         Credentials.getPASSWORD()
                 );
-                Statement stmt = conn.createStatement();
+                Statement stmt = conn.createStatement()
 
         ) {
 
@@ -43,7 +40,7 @@ public class App {
             double time, time_1, time_2;
             time_1 = System.currentTimeMillis();
             stmt.executeUpdate(Query.DROP_TABLE);
-            System.out.println("Existing Tables(If any) Dropped.");
+            System.out.println("Existing Table 'stocks' Dropped.");
             stmt.executeUpdate(Query.CREATE_TABLE);
             System.out.println("New Table 'stocks' Created.");
 
@@ -78,7 +75,7 @@ public class App {
     private String consoleIO() {
         String input = null;
         try(Scanner scan = new Scanner(System.in)) {
-            System.out.println("Enter Date: ");
+            System.out.print("Enter Date: ");
             input = scan.nextLine();
         } catch (Exception e) {
             System.err.println(e);
