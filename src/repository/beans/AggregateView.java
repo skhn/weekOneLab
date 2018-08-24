@@ -2,6 +2,11 @@ package repository.beans;
 
 import java.io.Serializable;
 
+/**
+ *
+ * Class to Store List of Quotes
+ */
+
 public class AggregateView implements Serializable {
 
     private String symbol;

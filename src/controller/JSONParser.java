@@ -11,6 +11,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This Class processes the dataset from the url and returns a list of strings (List of Quotes).
+ *
+ */
+
 class JSONParser {
 
     private ObjectMapper objectMapper;

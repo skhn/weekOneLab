@@ -1,5 +1,9 @@
 package repository;
 
+/**
+ *
+ * Database Access information and URL.
+ */
 public final class Credentials {
 
     private static final String USERNAME = "root";

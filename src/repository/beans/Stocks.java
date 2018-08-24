@@ -3,6 +3,11 @@ package repository.beans;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+/**
+ *
+ * Class to form a single List item
+ */
+
 public class Stocks implements Serializable {
 
     private int stockId;

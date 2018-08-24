@@ -1,5 +1,9 @@
 package repository;
 
+/**
+ *
+ * Queries for database access stored in this class.
+ */
 public final class Query {
 
     public static final String GET_ALL = "SELECT * FROM STOCKS";

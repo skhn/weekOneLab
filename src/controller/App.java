@@ -9,10 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+
+/**
+ *
+ * Main application
+ */
+
 public class App {
 
-    private List<String> rows = JSONParser.getJSONParserInstance().getRowList();
 
+    private List<String> rows = JSONParser.getJSONParserInstance().getRowList();
     private List<List<AggregateView>> aggregateDataObject = new ArrayList<>();
 
 
@@ -71,6 +77,11 @@ public class App {
 
     }
 
+    /**
+     *
+     * The following method takes date as string input from the console.
+     * @return
+     */
 
     private String consoleIO() {
         String input = null;

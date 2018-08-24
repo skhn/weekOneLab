@@ -9,6 +9,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * performs execution of queries and instantiation of objects.
+ */
+
 public class DBService {
 
     public static void insertRow(Connection conn, String rowValue) {
