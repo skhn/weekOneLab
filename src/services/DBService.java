@@ -24,8 +24,6 @@ public class DBService {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
             java.util.Date dateStr = formatter.parse(rowItems[3]);
 
-            System.out.println(rowItems[3]);
-            System.out.println(dateStr);
 
             java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
 
@@ -50,14 +48,14 @@ public class DBService {
 
         try (Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
 
-            ResultSet rs = stmt.executeQuery(Query.resultByDate(clippedDate));
+            ResultSet rs = stmt.executeQuery(Query.resultByDate(Query.aggregateResult(clippedDate,"DATE")));
             List<AggregateView> aggregateListItem = new ArrayList<>();
             aggregateViewHelper(rs, aggregateListItem);
             aggregateList.add(aggregateListItem);
 
 
 
-            rs = stmt.executeQuery(Query.resultByMonth(clippedDate.split("-")[1]));
+            rs = stmt.executeQuery(Query.resultByDate(Query.aggregateResult(clippedDate,"MONTH")));
             aggregateListItem = new ArrayList<>();
             aggregateViewHelper(rs, aggregateListItem);
             aggregateList.add(aggregateListItem);

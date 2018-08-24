@@ -15,8 +15,8 @@ USE `week_1_lab`;
 --
 -- Drop tables if they already exist
 --
-DROP TABLE IF EXISTS `stocks`;
 
+DROP TABLE IF EXISTS `stocks`;
 -- --------------------------------------------------------
 
 --
