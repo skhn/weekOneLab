@@ -3,7 +3,6 @@ package repository.beans;
 import java.io.Serializable;
 
 /**
- *
  * Class to Store List of Quotes
  */
 
@@ -58,7 +57,7 @@ public class AggregateView implements Serializable {
     @Override
     public String toString() {
         return
-                        "     Symbol : " + getSymbol() +
+                "     Symbol : " + getSymbol() +
                         "     Max Price : " + getMaxPrice() +
                         "     Min Price : " + getMinPrice() +
                         "     Closing Price : " + getClosingPrice() +

@@ -1,7 +1,6 @@
 package repository;
 
 /**
- *
  * Queries for database access stored in this class.
  */
 public final class Query {
@@ -12,23 +11,23 @@ public final class Query {
 
     public static final String CREATE_TABLE =
             "CREATE TABLE IF NOT EXISTS stocks " +
-            "(stockId INT(11) NOT NULL AUTO_INCREMENT," +
-            "symbol VARCHAR(4) NOT NULL," +
-            "price DECIMAL(11,2) NOT NULL," +
-            "volume INT(11) NOT NULL," +
-            "date DATETIME NOT NULL," +
-            "PRIMARY KEY (stockId)) ENGINE=InnoDB  DEFAULT CHARSET=latin1;";
+                    "(stockId INT(11) NOT NULL AUTO_INCREMENT," +
+                    "symbol VARCHAR(4) NOT NULL," +
+                    "price DECIMAL(11,2) NOT NULL," +
+                    "volume INT(11) NOT NULL," +
+                    "date DATETIME NOT NULL," +
+                    "PRIMARY KEY (stockId)) ENGINE=InnoDB  DEFAULT CHARSET=latin1;";
 
     public static final String INSERT_ROW = "INSERT INTO Stocks (symbol, price, volume, date) " +
             "VALUES (?, ?, ?, ?)";
 
 
-    public static String aggregateResult (String date, String option) {
+    public static String aggregateResult(String date, String option) {
         switch (option) {
             case "MONTH":
-                return  " WHERE MONTH(DATE) = '" + date.split("-")[1] + "' ";
+                return " WHERE MONTH(DATE) = '" + date.split("-")[1] + "' ";
             case "DATE":
-                return  " WHERE DATE LIKE '" + date + "%' ";
+                return " WHERE DATE LIKE '" + date + "%' ";
         }
         return null;
     }

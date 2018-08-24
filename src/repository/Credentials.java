@@ -1,7 +1,6 @@
 package repository;
 
 /**
- *
  * Database Access information and URL.
  */
 public final class Credentials {
@@ -24,5 +23,7 @@ public final class Credentials {
         return CONN_STRING;
     }
 
-    public static String getURL() { return URL; }
+    public static String getURL() {
+        return URL;
+    }
 }

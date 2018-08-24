@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- *
  * Class to form a single List item
  */
 
@@ -58,7 +57,7 @@ public class Stocks implements Serializable {
 
 
     @Override
-    public String toString(){
+    public String toString() {
         return getSymbol() + "," + getPrice() + "," + getVolume() + "," + getDate();
     }
 }

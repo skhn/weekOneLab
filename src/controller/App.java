@@ -4,6 +4,7 @@ import repository.Credentials;
 import repository.Query;
 import repository.beans.AggregateView;
 import services.DBService;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,6 @@ import java.util.Scanner;
 
 
 /**
- *
  * Main application
  */
 
@@ -22,8 +22,6 @@ public class App {
     private List<List<AggregateView>> aggregateDataObject = new ArrayList<>();
 
 
-
-
     public static void main(String[] args) {
 
 
@@ -31,7 +29,7 @@ public class App {
 
 
         try (
-                Connection conn = DriverManager.getConnection   (
+                Connection conn = DriverManager.getConnection(
                         Credentials.getConnString(),
                         Credentials.getUSERNAME(),
                         Credentials.getPASSWORD()
@@ -57,14 +55,14 @@ public class App {
 
             System.out.println("Inserted List of Quotes from URL into DB.");
             time_2 = System.currentTimeMillis();
-            time = (time_2 - time_1)/1000;
+            time = (time_2 - time_1) / 1000;
             System.out.println("Time Taken: " + time + " Seconds\n");
             app.aggregateDataObject = DBService.showAggregateData(conn, app.consoleIO());
 
-            for(int i = 0; i < 2; i ++) {
+            for (int i = 0; i < 2; i++) {
                 app.aggregateDataObject.get(i);
                 System.out.println("\n\n");
-                System.out.println(i == 0 ? "Aggregate Values By Date: ":"Aggregate Values By Month: ");
+                System.out.println(i == 0 ? "Aggregate Values By Date: " : "Aggregate Values By Month: ");
                 for (AggregateView ag : app.aggregateDataObject.get(i)) {
                     System.out.println(ag);
                 }
@@ -78,14 +76,14 @@ public class App {
     }
 
     /**
-     *
      * The following method takes date as string input from the console.
+     *
      * @return
      */
 
     private String consoleIO() {
         String input = null;
-        try(Scanner scan = new Scanner(System.in)) {
+        try (Scanner scan = new Scanner(System.in)) {
             System.out.print("Enter Date: ");
             input = scan.nextLine();
         } catch (Exception e) {
