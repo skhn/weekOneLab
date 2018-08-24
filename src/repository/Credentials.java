@@ -2,10 +2,10 @@ package repository;
 
 public final class Credentials {
 
-    private static final String USERNAME = "dbuser";
-    private static final String PASSWORD = "dbpassword";
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "";
     private static final String CONN_STRING =
-            "jdbc:mysql://localhost:8889/week_1_lab";
+            "jdbc:mysql://localhost:3306/lab";
     private static final String URL = "https://bootcamp-training-files.cfapps.io/week1/week1-stocks.json";
 
     public static String getUSERNAME() {
